@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM seleniarm/node-chromium:4.0.0-beta-1-20210215
+FROM seleniarm/node-chromium:4.0.0-beta-2-20210318
 LABEL authors=sj26
 
 USER 1200
