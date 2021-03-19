@@ -33,4 +33,20 @@ $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm seleniarm/standalone-firefox
 $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm seleniarm/standalone-chromium
 ```
 
+## Recreating the images
 
+Making sure you are logged into the registry and have the permissions to push images, otherwise the process will fail.
+
+In order to recreate all images and push them to your registry, run:
+
+```sh
+NAME=container-registry make all
+```
+
+Replace `container-registry` with the container registry you want to push images into.
+
+If you just want to recreate a specific image (e.g., standalone_chromium), run:
+
+```sh
+NAME=container-registry make standalone_chromium
+```
