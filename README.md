@@ -50,3 +50,18 @@ If you just want to recreate a specific image (e.g., standalone_chromium), run:
 ```sh
 NAME=container-registry make standalone_chromium
 ```
+
+## Set Chromium version
+
+If you want to set a specific Chromium version, update [this file](./NodeChromium/Dockerfile.txt) and replace the `<chromium-version> below:
+
+```dockerfile
+RUN echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >> /etc/apt/sources.list \
+  && apt-get update -qqy \
+  && apt-get -qqy install chromium=<chromium-version> \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+```
+
+You can find the available versions [here](chromium=89.0.4389.82-1) or just remove the version altogether to let the most recent version be installed.
+
+After that, you need to [recreate the images](#recreating-the-images).
