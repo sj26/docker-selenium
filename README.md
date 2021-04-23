@@ -62,6 +62,6 @@ RUN echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 ```
 
-You can find the available versions [here](chromium=89.0.4389.82-1) or just remove the version altogether to let the most recent version be installed.
+You can find the available versions [here](https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords=chromium) or just remove the version altogether to let the most recent version be installed.
 
 After that, you need to [recreate the images](#recreating-the-images).
