@@ -1,10 +1,10 @@
 NAME := $(or $(NAME),$(NAME),seleniarm)
 CURRENT_DATE := $(shell date '+%Y%m%d')
 BUILD_DATE := $(or $(BUILD_DATE),$(BUILD_DATE),$(CURRENT_DATE))
-VERSION := $(or $(VERSION),$(VERSION),4.0.0-beta-1)
+VERSION := $(or $(VERSION),$(VERSION),4.0.0-beta-2)
 TAG_VERSION := $(VERSION)-$(BUILD_DATE)
 NAMESPACE := $(or $(NAMESPACE),$(NAMESPACE),$(NAME))
-AUTHORS := $(or $(AUTHORS),$(AUTHORS),sj26)
+AUTHORS := $(or $(AUTHORS),$(AUTHORS),rows)
 PUSH_IMAGE := $(or $(PUSH_IMAGE),$(PUSH_IMAGE),false)
 DEFAULT_BUILD_ARGS := --platform linux/amd64,linux/arm64
 BUILD_ARGS := $(or $(BUILD_ARGS),$(BUILD_ARGS),$(DEFAULT_BUILD_ARGS))

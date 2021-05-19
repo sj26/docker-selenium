@@ -33,4 +33,35 @@ $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm seleniarm/standalone-firefox
 $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm seleniarm/standalone-chromium
 ```
 
+## Recreating the images
 
+Making sure you are logged into the registry and have the permissions to push images, otherwise the process will fail.
+
+In order to recreate all images and push them to your registry, run:
+
+```sh
+NAME=container-registry make all
+```
+
+Replace `container-registry` with the container registry you want to push images into.
+
+If you just want to recreate a specific image (e.g., standalone_chromium), run:
+
+```sh
+NAME=container-registry make standalone_chromium
+```
+
+## Set Chromium version
+
+If you want to set a specific Chromium version, update [this file](./NodeChromium/Dockerfile.txt) and replace the `<chromium-version> below:
+
+```dockerfile
+RUN echo "deb http://http.us.debian.org/debian/ testing non-free contrib main" >> /etc/apt/sources.list \
+  && apt-get update -qqy \
+  && apt-get -qqy install chromium=<chromium-version> \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+```
+
+You can find the available versions [here](https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords=chromium) or just remove the version altogether to let the most recent version be installed.
+
+After that, you need to [recreate the images](#recreating-the-images).
